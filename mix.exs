@@ -2,12 +2,16 @@ defmodule Sidewalk.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :sidewalk,
-     version: "0.2.0",
-     elixir: "~> 1.3",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps()]
+    [
+      app: :sidewalk,
+      version: "0.2.0",
+      elixir: "~> 1.3",
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      description: description(),
+      package: package(),
+      deps: deps()
+   ]
   end
 
   def application do
@@ -25,9 +29,15 @@ defmodule Sidewalk.Mixfile do
     ]
   end
 
+  defp description do
+    """
+    Sidewalk is an Elixir client for Sidekiq the »simple, efficient background processing library for Ruby«.
+    """
+  end
+
   defp package do
     [
-      name: :postgrex,
+      name: :sidewalk,
       maintainers: ["Matthias Kalb"],
       licenses: ["MIT"],
       links: %{
