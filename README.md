@@ -55,7 +55,7 @@ Sidewalk offers three modes for enqueuing jobs:
 
 ```elixir
 job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
-{:ok, "2f87a952ced00ea6cdd61245"} = Sidewalk.Client.enqueue(job)
+{:ok, jid} = Sidewalk.Client.enqueue(job) # => jid: "2f87a952ced00ea6cdd61245"
 ```
 
 #### 2. Enqueuing a job with a delayed execution defined in seconds
@@ -64,7 +64,7 @@ job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
 # The time when the job should be executed is defined in seconds
 
 job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
-{:ok, "a805893e8bd98bf965d1dd54"} = Sidewalk.Client.enqueue_in(job, 120)
+{:ok, jid} = Sidewalk.Client.enqueue_in(job, 120) # => jid: "a805893e8bd98bf965d1dd54"
 ```
 
 #### 3. Enqueuing a job to be executed at a specific time
@@ -73,7 +73,7 @@ job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
 # The time when the job should be executed is defined as a unix timestamp
 
 job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
-{:ok, "d6ceac7d6c42d35ff6cac8a0"} = Sidewalk.Client.enqueue_at(job, 1546293600)
+{:ok, jid} = Sidewalk.Client.enqueue_at(job, 1546293600) # => jid: "d6ceac7d6c42d35ff6cac8a0"
 ```
 
 ## License

@@ -230,7 +230,7 @@ Like Sidekiq or Resque it supports three types of enqueuing.</p>
 <h2>Example</h2>
 <pre><code class="elixir"># Enqueue a job which should be executed immediately
 job = %Sidewalk.Job{class: &quot;MyWorker&quot;, args: [&#39;bob&#39;, 1, %{foo: &#39;bar&#39;}]}
-{:ok, &quot;2f87a952ced00ea6cdd61245&quot;} = Sidewalk.Client.enqueue(job)</code></pre>
+{:ok, jid} = Sidewalk.Client.enqueue(job) # =&gt; jid: &quot;2f87a952ced00ea6cdd61245&quot;</code></pre>
 
   </section>
 </div>
@@ -258,7 +258,7 @@ job = %Sidewalk.Job{class: &quot;MyWorker&quot;, args: [&#39;bob&#39;, 1, %{foo:
 <h2>Example</h2>
 <pre><code class="elixir"># Enquing a job which would be executed at 31th December 2018 (unix timestamp: 1546293600)
 job = %Sidewalk.Job{class: &quot;MyWorker&quot;, args: [&#39;bob&#39;, 1, %{foo: &#39;bar&#39;}]}
-{:ok, &quot;d6ceac7d6c42d35ff6cac8a0&quot;} = Sidewalk.Client.enqueue_at(job, 1546293600)</code></pre>
+{:ok, jid} = Sidewalk.Client.enqueue_at(job, 1546293600) # =&gt; jid: &quot;d6ceac7d6c42d35ff6cac8a0&quot;</code></pre>
 
   </section>
 </div>
@@ -286,7 +286,7 @@ job = %Sidewalk.Job{class: &quot;MyWorker&quot;, args: [&#39;bob&#39;, 1, %{foo:
 <h2>Example</h2>
 <pre><code class="elixir"># Enquing a job which would be executed in 2 minutes (120 seconds) from now
 job = %Sidewalk.Job{class: &quot;MyWorker&quot;, args: [&#39;bob&#39;, 1, %{foo: &#39;bar&#39;}]}
-{:ok, &quot;a805893e8bd98bf965d1dd54&quot;} = Sidewalk.Client.enqueue_in(job, 120)</code></pre>
+{:ok, jid} = Sidewalk.Client.enqueue_in(job, 120) # =&gt; jid: &quot;a805893e8bd98bf965d1dd54&quot;</code></pre>
 
   </section>
 </div>

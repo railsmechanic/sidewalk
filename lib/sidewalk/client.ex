@@ -21,7 +21,7 @@ defmodule Sidewalk.Client do
   ## Example
       # Enqueue a job which should be executed immediately
       job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
-      {:ok, "2f87a952ced00ea6cdd61245"} = Sidewalk.Client.enqueue(job)
+      {:ok, jid} = Sidewalk.Client.enqueue(job) # => jid: "2f87a952ced00ea6cdd61245"
   """
   @spec enqueue(job) :: response
   def enqueue(job=%Sidewalk.Job{}) do
@@ -37,7 +37,7 @@ defmodule Sidewalk.Client do
   ## Example
       # Enquing a job which would be executed in 2 minutes (120 seconds) from now
       job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
-      {:ok, "a805893e8bd98bf965d1dd54"} = Sidewalk.Client.enqueue_in(job, 120)
+      {:ok, jid} = Sidewalk.Client.enqueue_in(job, 120) # => jid: "a805893e8bd98bf965d1dd54"
   """
   @spec enqueue_in(job, enqueue_delay) :: response
   def enqueue_in(job, enqueue_in_seconds \\ 60)
@@ -57,7 +57,7 @@ defmodule Sidewalk.Client do
   ## Example
       # Enquing a job which would be executed at 31th December 2018 (unix timestamp: 1546293600)
       job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
-      {:ok, "d6ceac7d6c42d35ff6cac8a0"} = Sidewalk.Client.enqueue_at(job, 1546293600)
+      {:ok, jid} = Sidewalk.Client.enqueue_at(job, 1546293600) # => jid: "d6ceac7d6c42d35ff6cac8a0"
   """
   @spec enqueue_at(job, enqueue_time) :: response
   def enqueue_at(job, enqueue_at_timestamp \\ (current_unix_timestamp + 60))
