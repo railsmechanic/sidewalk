@@ -16,25 +16,25 @@ To use Sidewalk you need to create a `%Sidewalk.Job{}` and enqueue it with one o
 ## Installation
 1. Add `sidewalk` to your list of dependencies in `mix.exs`:
 
-```elixir
-def deps do
-  [{:sidewalk, "~> 0.2.0"}]
-end
-```
+  ```elixir
+  def deps do
+    [{:sidewalk, "~> 0.2.0"}]
+  end
+  ```
 
 2. Ensure `sidewalk` is started before your application:
 
-```elixir
-def application do
-  [applications: [:sidewalk]]
-end
-```
+  ```elixir
+  def application do
+    [applications: [:sidewalk]]
+  end
+  ```
 
 3. Fetch dependencies
 
-```bash
-mix deps.get
-```
+  ```bash
+  mix deps.get
+  ```
 
 ## Configuration example
 
