@@ -24,4 +24,15 @@ defmodule Sidewalk.Mixfile do
       {:earmark, "~> 1.0.1", only: [:dev]}
     ]
   end
+
+  defp package do
+    [
+      name: :postgrex,
+      maintainers: ["Matthias Kalb"],
+      licenses: ["MIT"],
+      links: %{
+        "GitHub" => "https://github.com/railsmechanic/sidewalk"
+      }
+    ]
+  end
 end
