@@ -51,14 +51,14 @@ config :sidewalk,
 ## Usage
 Sidewalk offers three modes for enqueuing jobs:
 
-### 1. Enqueuing a job with an immediate execution
+#### 1. Enqueuing a job with an immediate execution
 
 ```elixir
 job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
 {:ok, "2f87a952ced00ea6cdd61245"} = Sidewalk.Client.enqueue(job)
 ```
 
-### 2. Enqueuing a job with a delayed execution defined in seconds
+#### 2. Enqueuing a job with a delayed execution defined in seconds
 
 ```elixir
 # The time when the job should be executed is defined in seconds
@@ -67,7 +67,7 @@ job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
 {:ok, "a805893e8bd98bf965d1dd54"} = Sidewalk.Client.enqueue_in(job, 120)
 ```
 
-### 3. Enqueuing a job to be executed at a specific time
+#### 3. Enqueuing a job to be executed at a specific time
 
 ```elixir
 # The time when the job should be executed is defined as a unix timestamp
