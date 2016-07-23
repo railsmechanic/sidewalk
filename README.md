@@ -36,7 +36,7 @@ To use Sidewalk you need to create a `%Sidewalk.Job{}` and enqueue it with one o
   mix deps.get
   ```
 
-## Configuration example
+## Configuration
 
 ```elixir
 config :sidewalk,
