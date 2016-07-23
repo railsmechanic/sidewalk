@@ -14,39 +14,39 @@ To use Sidewalk you need to create a `%Sidewalk.Job{}` and enqueue it with one o
 * Enqueuing jobs to be executed at a specific time
 
 ## Installation
-  1. Add `sidewalk` to your list of dependencies in `mix.exs`:
+1. Add `sidewalk` to your list of dependencies in `mix.exs`:
 
-    ```elixir
-    def deps do
-      [{:sidewalk, "~> 0.2.0"}]
-    end
-    ```
+```elixir
+def deps do
+  [{:sidewalk, "~> 0.2.0"}]
+end
+```
 
-  2. Ensure `sidewalk` is started before your application:
+2. Ensure `sidewalk` is started before your application:
 
-    ```elixir
-    def application do
-      [applications: [:sidewalk]]
-    end
-    ```
+```elixir
+def application do
+  [applications: [:sidewalk]]
+end
+```
 
-  3. Fetch dependencies
+3. Fetch dependencies
 
-    ```bash
-    mix deps.get
-    ```
+```bash
+mix deps.get
+```
 
 ## Configuration example
 
-  ```elixir
-  config :sidewalk,
-    host: "localhost",
-    port: 6379,
-    password: "you password",
-    namespace: "your_namespace",
-    database: 0,
-    pool_size: 10
-  ```
+```elixir
+config :sidewalk,
+  host: "localhost",
+  port: 6379,
+  password: "you password",
+  namespace: "your_namespace",
+  database: 0,
+  pool_size: 10
+```
 
 ## Usage
 Sidewalk offers three modes for enqueuing jobs:
