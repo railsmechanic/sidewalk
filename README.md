@@ -18,7 +18,7 @@ To use Sidewalk you need to create a `%Sidewalk.Job{}` and enqueue it with one o
 
   ```elixir
   def deps do
-    [{:sidewalk, "~> 0.2.0"}]
+    [{:sidewalk, "~> 0.2.1"}]
   end
   ```
 

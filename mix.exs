@@ -4,7 +4,7 @@ defmodule Sidewalk.Mixfile do
   def project do
     [
       app: :sidewalk,
-      version: "0.2.0",
+      version: "0.2.1",
       elixir: "~> 1.3",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
@@ -38,7 +38,6 @@ defmodule Sidewalk.Mixfile do
   defp package do
     [
       name: :sidewalk,
-      maintainers: ["Matthias Kalb"],
       licenses: ["MIT"],
       links: %{
         "GitHub" => "https://github.com/railsmechanic/sidewalk"
