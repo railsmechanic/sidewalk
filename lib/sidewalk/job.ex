@@ -23,4 +23,14 @@ defmodule Sidewalk.Job do
     queue: "default",
     retry: true
   ]
+
+  @type t :: %Sidewalk.Job{
+    jid: String.t,
+    class: String.t,
+    args: List.t,
+    created_at: Float.t,
+    enqueued_at:  Float.t,
+    queue: String.t,
+    retry: boolean
+  }
 end
