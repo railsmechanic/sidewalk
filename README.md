@@ -76,4 +76,4 @@ job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
 ```
 
 ## License
-See See [LICENSE](https://github.com/railsmechanic/sidewalk/blob/master/LICENSE).
+See [LICENSE](https://github.com/railsmechanic/sidewalk/blob/master/LICENSE).
