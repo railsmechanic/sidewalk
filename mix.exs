@@ -39,6 +39,7 @@ defmodule Sidewalk.Mixfile do
     [
       name: :sidewalk,
       licenses: ["MIT"],
+      maintainers: [],
       links: %{
         "GitHub" => "https://github.com/railsmechanic/sidewalk"
       }
