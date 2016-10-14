@@ -1,5 +1,5 @@
 # Sidewalk
-Sidewalk is an Elixir client compatible with Sidekiq, the »simple, efficient background processing library for Ruby«.
+Sidewalk is an Elixir client which is compatible with Sidekiq, the »simple, efficient background processing library for Ruby«.
 It can be used to enqueue jobs for later processing alongside e.g. with an already existing Ruby application.
 For more information about Sidekiq please refer to http://sidekiq.org.
 
