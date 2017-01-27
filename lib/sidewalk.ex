@@ -40,7 +40,7 @@ defmodule Sidewalk do
     import Supervisor.Spec, warn: false
 
     children = [
-      :poolboy.child_spec(:sidewalk_pool, pool_options, redix_options)
+      :poolboy.child_spec(:sidewalk_pool, pool_options(), redix_options())
     ]
 
     opts = [strategy: :one_for_one, name: Sidewalk.Supervisor]

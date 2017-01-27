@@ -42,7 +42,7 @@ defmodule Sidewalk.Client do
   @spec enqueue_in(job, enqueue_delay) :: response
   def enqueue_in(job, enqueue_in_seconds \\ 60)
   def enqueue_in(job=%Sidewalk.Job{}, enqueue_in_seconds) when is_integer(enqueue_in_seconds) and enqueue_in_seconds > 0 do
-    enqueue_at(job, (current_unix_timestamp + enqueue_in_seconds))
+    enqueue_at(job, (current_unix_timestamp() + enqueue_in_seconds))
   end
   def enqueue_in(job=%Sidewalk.Job{}, enqueue_in_seconds) when is_integer(enqueue_in_seconds) and enqueue_in_seconds <= 0 do
     enqueue(job)
@@ -60,9 +60,9 @@ defmodule Sidewalk.Client do
       {:ok, jid} = Sidewalk.Client.enqueue_at(job, 1546293600) # => jid: "d6ceac7d6c42d35ff6cac8a0"
   """
   @spec enqueue_at(job, enqueue_time) :: response
-  def enqueue_at(job, enqueue_at_timestamp \\ (current_unix_timestamp + 60))
+  def enqueue_at(job, enqueue_at_timestamp \\ (current_unix_timestamp() + 60))
   def enqueue_at(job=%Sidewalk.Job{}, enqueue_at_timestamp) when is_number(enqueue_at_timestamp) and enqueue_at_timestamp > 1_000_000_000 do
-    if enqueue_at_timestamp <= current_unix_timestamp do
+    if enqueue_at_timestamp <= current_unix_timestamp() do
       enqueue(job)
     else
       with {:ok, normalized_job} <- normalize_job(job), do: atomic_push(normalized_job, enqueue_at_timestamp)
@@ -85,7 +85,7 @@ defmodule Sidewalk.Client do
       %Sidewalk.Job{args: args} when not is_list(args) ->
         {:error, "Job args must be a List"}
       %Sidewalk.Job{class: class, args: args} when is_binary(class) and byte_size(class) > 0 and is_list(args) ->
-        {:ok, %{job | jid: random_jid, created_at: current_unix_timestamp}}
+        {:ok, %{job | jid: random_jid(), created_at: current_unix_timestamp()}}
       _ ->
         {:error, "Job must be a Sidewalk.Job with at least 'class' and 'args' set: %Sidewalk.Job{class: 'SomeWorker', args: ['bob', 1, %{foo: 'bar'}]}"}
     end
@@ -93,7 +93,7 @@ defmodule Sidewalk.Client do
 
   @spec atomic_push(job) :: response
   defp atomic_push(job) when is_map(job) do
-    case Poison.encode(%{job | enqueued_at: current_unix_timestamp}) do
+    case Poison.encode(%{job | enqueued_at: current_unix_timestamp()}) do
       {:ok, encoded_job} ->
         :poolboy.transaction(:sidewalk_pool, fn(conn) ->
           with  {:ok, _} <- Redix.command(conn, ~w(MULTI)),
@@ -109,7 +109,7 @@ defmodule Sidewalk.Client do
 
   @spec atomic_push(job, number) :: response
   defp atomic_push(job, at) when is_map(job) and is_number(at) and at > 1_000_000_000 do
-    case Poison.encode(%{job | enqueued_at: current_unix_timestamp}) do
+    case Poison.encode(%{job | enqueued_at: current_unix_timestamp()}) do
       {:ok, encoded_job} ->
         :poolboy.transaction(:sidewalk_pool, fn(conn) ->
           with {:ok, _} <- Redix.command(conn, ["ZADD", namespacify("schedule"), to_string(at), encoded_job]), do: {:ok, job.jid}
