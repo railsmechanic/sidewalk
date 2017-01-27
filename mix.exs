@@ -5,7 +5,7 @@ defmodule Sidewalk.Mixfile do
     [
       app: :sidewalk,
       version: "0.3.0",
-      elixir: "~> 1.3.4",
+      elixir: "~> 1.4.0",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
       description: description(),
@@ -15,7 +15,7 @@ defmodule Sidewalk.Mixfile do
   end
 
   def application do
-    [applications: [:logger, :crypto],
+    [extra_applications: [:logger, :crypto],
      mod: {Sidewalk, []}]
   end
 
