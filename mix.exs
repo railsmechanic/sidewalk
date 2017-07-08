@@ -4,7 +4,7 @@ defmodule Sidewalk.Mixfile do
   def project do
     [
       app: :sidewalk,
-      version: "0.3.0",
+      version: "0.3.1",
       elixir: "~> 1.4.0",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
@@ -21,11 +21,11 @@ defmodule Sidewalk.Mixfile do
 
   defp deps do
     [
-      {:redix,    "~> 0.5.1"},
+      {:redix,    "~> 0.6.0"},
       {:poolboy,  "~> 1.5.1"},
       {:poison,   "~> 3.1.0"},
-      {:ex_doc,   "~> 0.14.5",  only: [:dev]},
-      {:earmark,  "~> 1.1.0",   only: [:dev]}
+      {:ex_doc,   "~> 0.16.0",  only: [:dev]},
+      {:earmark,  "~> 1.2.0",   only: [:dev]}
     ]
   end
 
