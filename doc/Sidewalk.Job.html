@@ -1,23 +1,24 @@
     <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.14.3">
-    <title>Sidewalk.Job – sidewalk v0.2.2</title>
+    <meta name="generator" content="ExDoc v0.16.2">
+    <title>Sidewalk.Job – sidewalk v0.3.1</title>
     <link rel="stylesheet" href="dist/app-091c05798a.css" />
     
       <link rel="canonical" href="https://hexdocs.pm/sidewalk/Sidewalk.Job.html" />
     
-    <script src="dist/sidebar_items.js"></script>
+    <script src="dist/sidebar_items-0aadb755c3.js"></script>
   </head>
   <body data-type="modules">
-    <script>if(localStorage.getItem('night-mode')) document.body.className += ' night-mode';</script>
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
 
     <div class="main">
 <button class="sidebar-toggle">
-  <i class="icon-menu"></i>
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
 </button>
 <section class="sidebar">
 
@@ -28,15 +29,15 @@
         sidewalk
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.2.2
+        v0.3.1
       </h2>
     </div>
     
   </a>
 
   <div class="sidebar-search">
-    <i class="icon-search"></i>
-    <input type="text" class="sidebar-searchInput" placeholder="search" autocomplete="off" />
+    <span class="icon-search" aria-hidden="true"></span>
+    <input type="text" class="sidebar-searchInput" placeholder="search" aria-label="Search" autocomplete="off" />
   </div>
 
   <ul class="sidebar-listNav">
@@ -44,6 +45,8 @@
 
     
       <li><a id="modules-list" href="#full-list">Modules</a></li>
+    
+
     
 
     
@@ -60,9 +63,8 @@
 
 
       <h1>
-        <small class="visible-xs">sidewalk v0.2.2</small>
+        <small class="visible-xs">sidewalk v0.3.1</small>
         Sidewalk.Job
-        
         
       </h1>
 
@@ -70,7 +72,7 @@
         <section id="moduledoc">
           <p>This struct represents a typical Sidewalk job.</p>
 <h2 id="module-struct-definitions" class="section-heading">
-  <a href="#module-struct-definitions" class="hover-link"><i class="icon-link"></i></a>
+  <a href="#module-struct-definitions" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Struct definitions
 </h2>
 
@@ -98,7 +100,8 @@
         <section id="summary" class="details-list">
           <h1 class="section-heading">
             <a class="hover-link" href="#summary">
-              <i class="icon-link"></i>
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
             </a>
             Summary
           </h1>
@@ -121,8 +124,6 @@
 
           
 
-          
-
         </section>
       
 
@@ -130,7 +131,8 @@
         <section id="types" class="details-list">
           <h1 class="section-heading">
             <a class="hover-link" href="#types">
-              <i class="icon-link"></i>
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
             </a>
             Types
           </h1>
@@ -139,7 +141,8 @@
   
   <div class="detail-header">
     <a href="#t:t/0" class="detail-link" title="Link to this type">
-      <i class="icon-link"></i>
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
     </a>
     <span class="signature">t()</span>
     
@@ -147,7 +150,7 @@
     
       <div class="specs">
         
-          <pre><a href="#t:t/0">t</a> :: %Sidewalk.Job{args: <a href="http://elixir-lang.org/docs/stable/elixir/List.html#t:t/0">List.t</a>, class: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, created_at: <a href="http://elixir-lang.org/docs/stable/elixir/Float.html#t:t/0">Float.t</a>, enqueued_at: <a href="http://elixir-lang.org/docs/stable/elixir/Float.html#t:t/0">Float.t</a>, jid: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, queue: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, retry: boolean}</pre>
+          <pre>t() :: %Sidewalk.Job{args: <a href="https://hexdocs.pm/elixir/List.html#t:t/0">List.t</a>, class: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>, created_at: <a href="https://hexdocs.pm/elixir/Float.html#t:t/0">Float.t</a>, enqueued_at: <a href="https://hexdocs.pm/elixir/Float.html#t:t/0">Float.t</a>, jid: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>, queue: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>, retry: boolean}</pre>
         
       </div>
     
@@ -164,26 +167,24 @@
       
 
       
-
-      
           <footer class="footer">
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.14.3),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.16.2),
           </span>
           <span class="line">
             designed by
             <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
             </span>
         </p>
-        <button class="night-mode-toggle" />
+        <button class="night-mode-toggle"><span class="sr-only">Switch theme</span></button>
       </footer>
     </div>
   </div>
 </section>
 </div>
-  <script src="dist/app-574613960f.js"></script>
+  <script src="dist/app-4988ddd06b.js"></script>
   </body>
 </html>
 
