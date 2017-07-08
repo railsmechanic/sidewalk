@@ -1,2 +1,7 @@
 _build
+cover
 deps
+erl_crash.dump
+*.ez
+mix.lock
+dump.rdb
