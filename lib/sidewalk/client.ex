@@ -96,7 +96,7 @@ defmodule Sidewalk.Client do
     case Poison.encode(%{job | enqueued_at: current_unix_timestamp()}) do
       {:ok, encoded_job} ->
         :poolboy.transaction(:sidewalk_pool, fn(conn) ->
-          with
+          with \
             {:ok, _} <- Redix.command(conn, ["MULTI"]),
             {:ok, _} <- Redix.command(conn, ["SADD", namespacify("queues"), job.queue]),
             {:ok, _} <- Redix.command(conn, ["LPUSH", namespacify("queue:#{job.queue}"), encoded_job]),
