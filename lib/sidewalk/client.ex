@@ -96,9 +96,18 @@ defmodule Sidewalk.Client do
     case Poison.encode(%{job | enqueued_at: current_unix_timestamp()}) do
       {:ok, encoded_job} ->
         :poolboy.transaction(:sidewalk_pool, fn(conn) ->
-          maybe_atomic_push(conn, job, encoded_job)
+          with
+            {:ok, _} <- Redix.command(conn, ["MULTI"]),
+            {:ok, _} <- Redix.command(conn, ["SADD", namespacify("queues"), job.queue]),
+            {:ok, _} <- Redix.command(conn, ["LPUSH", namespacify("queue:#{job.queue}"), encoded_job]),
+            {:ok, _} <- Redix.command(conn, ["EXEC"])
+          do
+            {:ok, job.jid}
+          else
+            {:error, redix_error} ->
+              raise redix_error
+          end
         end)
-
       {:error, error_message} ->
         {:error, "Unable to enqueue Job: #{error_message}"}
     end
@@ -137,17 +146,4 @@ defmodule Sidewalk.Client do
     String.to_float("#{mega_seconds}#{seconds}.#{microseconds}")
   end
 
-  defp maybe_atomic_push(conn, job, encoded_job) do
-    with \
-      {:ok, _} <- Redix.command(conn, ~w(MULTI)),
-      {:ok, _} <- Redix.command(conn, ["SADD", namespacify("queues"), job.queue]),
-      {:ok, _} <- Redix.command(conn, ["LPUSH", namespacify("queue:#{job.queue}"), encoded_job]),
-      {:ok, _} <- Redix.command(conn, ~w(EXEC))
-    do
-      {:ok, job.jid}
-    else
-      {:error, redix_error} ->
-        raise redix_error
-    end
-  end
 end
