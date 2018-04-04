@@ -31,7 +31,9 @@ defmodule Sidewalk.Mixfile do
 
   defp description do
     """
-    Sidewalk is an Elixir client which is compatible with Sidekiq, the »simple, efficient background processing library for Ruby«.
+    Sidewalk is an Elixir client which is compatible with Sidekiq, the »simple,
+    efficient background processing library for Ruby«. It is also compatible
+    when Active Job is used with Sidekiq.
     """
   end
 
