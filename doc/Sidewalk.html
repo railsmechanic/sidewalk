@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.16.4">
-    <title>Sidewalk – sidewalk v0.3.2</title>
+    <title>Sidewalk – sidewalk v0.3.3</title>
     <link rel="stylesheet" href="dist/app-091c05798a.css" />
     
       <link rel="canonical" href="https://hexdocs.pm/sidewalk/Sidewalk.html" />
@@ -31,7 +31,7 @@
         sidewalk
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.3.2
+        v0.3.3
       </h2>
     </div>
     
@@ -67,7 +67,7 @@
 
 
       <h1>
-        <small class="visible-xs">sidewalk v0.3.2</small>
+        <small class="visible-xs">sidewalk v0.3.3</small>
         Sidewalk
         
       </h1>
@@ -182,7 +182,7 @@ end</code></pre>
   </div>
   <section class="docstring">
     <p>Called when an application is started.</p>
-<p>This function is called when an the application is started using
+<p>This function is called when an application is started using
 <a href="https://hexdocs.pm/elixir/Application.html#start/2"><code class="inline">Application.start/2</code></a> (and functions on top of that, such as
 <a href="https://hexdocs.pm/elixir/Application.html#ensure_started/2"><code class="inline">Application.ensure_started/2</code></a>). This function should start the top-level
 process of the application (which should be the top supervisor of the
@@ -192,7 +192,7 @@ principles around supervision).</p>
 <ul>
 <li><code class="inline">:normal</code> - used if the startup is a normal startup or if the application
 is distributed and is started on the current node because of a failover
-from another mode and the application specification key <code class="inline">:start_phases</code>
+from another node and the application specification key <code class="inline">:start_phases</code>
 is <code class="inline">:undefined</code>.
 </li>
 <li><code class="inline">{:takeover, node}</code> - used if the application is distributed and is
