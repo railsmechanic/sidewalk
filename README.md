@@ -6,11 +6,13 @@ For more information about Sidekiq please refer to http://sidekiq.org.
 To use Sidewalk you need to create a `%Sidewalk.Job{}` and enqueue it with one of the enqueue functions.
 
 ## Supported features
+
 * Redis namespaces as already known with Sidekiq
 * Ability to configure the Redis server and connection details
 * Enqueuing jobs to be executed immediately
 * Enqueuing jobs to be executed in X seconds
 * Enqueuing jobs to be executed at a specific time
+* Enqueue jobs that are Active Job compatible
 
 ## Installation
 1. Add `sidewalk` to your list of dependencies in `mix.exs`:
@@ -55,6 +57,11 @@ Sidewalk offers three modes for enqueuing jobs:
 ```elixir
 job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
 {:ok, jid} = Sidewalk.Client.enqueue(job) # => jid: "2f87a952ced00ea6cdd61245"
+
+# And with Active Job:
+
+job = %Sidewalk.ActiveJob{job_class: "MyWorker", arguments: ["skippy", %{age: 21}]}
+{:ok, jid} = Sidewalk.Client.enqueue(job) # => jid: "2f87a952ced00ea6cdd61245"
 ```
 
 #### 2. Enqueuing a job with a delayed execution defined in seconds
@@ -64,6 +71,11 @@ job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
 
 job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
 {:ok, jid} = Sidewalk.Client.enqueue_in(job, 120) # => jid: "a805893e8bd98bf965d1dd54"
+
+# And with Active Job:
+
+job = %Sidewalk.ActiveJob{job_class: "MyWorker", arguments: ["anakin", 22, %{allegiance: "sith"}]}
+{:ok, jid} = Sidewalk.Client.enqueue_in(job, 120) # => jid: "a805893e8bd98bf965d1dd54"
 ```
 
 #### 3. Enqueuing a job to be executed at a specific time
@@ -72,6 +84,11 @@ job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
 # The time when the job should be executed is defined as a unix timestamp
 
 job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
+{:ok, jid} = Sidewalk.Client.enqueue_at(job, 1546293600) # => jid: "d6ceac7d6c42d35ff6cac8a0"
+
+# And with Active Job
+
+job = %Sidewalk.ActiveJob{job_class: "MyWorker", arguments: ["Obi-Wan", 33, %{allegiance: "jedi"}]}
 {:ok, jid} = Sidewalk.Client.enqueue_at(job, 1546293600) # => jid: "d6ceac7d6c42d35ff6cac8a0"
 ```
 
