@@ -18,8 +18,8 @@ defmodule Sidewalk.Job do
     jid: "",
     class: "",
     args: [],
-    created_at: 0,
-    enqueued_at: 0,
+    created_at: 0.0,
+    enqueued_at: 0.0,
     queue: "default",
     retry: true
   ]
@@ -27,9 +27,9 @@ defmodule Sidewalk.Job do
   @type t :: %Sidewalk.Job{
     jid: String.t,
     class: String.t,
-    args: List.t,
-    created_at: Float.t,
-    enqueued_at:  Float.t,
+    args: list(),
+    created_at: float(),
+    enqueued_at:  float(),
     queue: String.t,
     retry: boolean
   }
