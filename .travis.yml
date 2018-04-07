@@ -6,7 +6,7 @@ elixir:
   - 1.6.0
 
 otp_release:
-  - 18.0
+  - 19.0
 
 script:
   - mix dialyzer --halt-exit-status

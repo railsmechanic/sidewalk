@@ -86,7 +86,7 @@ defmodule Sidewalk.ClientTest do
     assert stored_job.retry == false
     assert stored_job.enqueued_at > 0
     assert stored_job.created_at > 0
-    assert stored_job.created_at < stored_job.enqueued_at
+    assert stored_job.created_at <= stored_job.enqueued_at
   end
 
   test "enqueue_in/2 to write data correctly to redis", %{redis: redis} do
@@ -102,7 +102,7 @@ defmodule Sidewalk.ClientTest do
     assert stored_job.retry == false
     assert stored_job.enqueued_at > 0
     assert stored_job.created_at > 0
-    assert stored_job.created_at < stored_job.enqueued_at
+    assert stored_job.created_at <= stored_job.enqueued_at
     assert String.to_float(raw_execution_time) > 1_000_000_000
   end
 
@@ -119,7 +119,7 @@ defmodule Sidewalk.ClientTest do
     assert stored_job.retry == false
     assert stored_job.enqueued_at > 0
     assert stored_job.created_at > 0
-    assert stored_job.created_at < stored_job.enqueued_at
+    assert stored_job.created_at <= stored_job.enqueued_at
     assert String.to_integer(raw_execution_time) == 2_000_000_000
   end
 

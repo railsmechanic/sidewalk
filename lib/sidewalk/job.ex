@@ -11,29 +11,27 @@ defmodule Sidewalk.Job do
   - **enqueue_at**  -> The timestamp when the job is really enqueued with the Redis server.
   - **queue**       -> The queue where a job should be enqueued. Defaults to "default" queue.
   - **retry**       -> Tells the Sidekiq worker to retry the enqueue job.
-  - **wrapped**     -> For use when you're dealing with an Active Job system.
+  - **wrapped**     -> For use when dealing with an ActiveJob system.
   """
 
   @derive [Poison.Encoder]
-  defstruct [
-    jid: "",
-    class: "",
-    args: [],
-    created_at: 0.0,
-    enqueued_at: 0.0,
-    queue: "default",
-    retry: true,
-    wrapped: ""
-  ]
+  defstruct jid: "",
+            class: "",
+            args: [],
+            created_at: 0.0,
+            enqueued_at: 0.0,
+            queue: "default",
+            retry: true,
+            wrapped: ""
 
   @type t :: %Sidewalk.Job{
-    jid: String.t,
-    class: String.t,
-    args: list(),
-    created_at: float(),
-    enqueued_at:  float(),
-    queue: String.t,
-    retry: boolean,
-    wrapped: String.t
-  }
+          jid: String.t(),
+          class: String.t(),
+          args: list(),
+          created_at: float(),
+          enqueued_at: float(),
+          queue: String.t(),
+          retry: boolean,
+          wrapped: String.t()
+        }
 end
