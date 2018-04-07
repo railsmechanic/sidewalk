@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.16.4">
-    <title>Sidewalk.Job – sidewalk v0.3.3</title>
+    <title>Sidewalk.Job – sidewalk v0.3.4</title>
     <link rel="stylesheet" href="dist/app-091c05798a.css" />
     
       <link rel="canonical" href="https://hexdocs.pm/sidewalk/Sidewalk.Job.html" />
@@ -31,7 +31,7 @@
         sidewalk
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.3.3
+        v0.3.4
       </h2>
     </div>
     
@@ -67,7 +67,7 @@
 
 
       <h1>
-        <small class="visible-xs">sidewalk v0.3.3</small>
+        <small class="visible-xs">sidewalk v0.3.4</small>
         Sidewalk.Job
         
       </h1>
@@ -94,6 +94,8 @@
 <li><strong>queue</strong>       -&gt; The queue where a job should be enqueued. Defaults to “default” queue.
 </li>
 <li><strong>retry</strong>       -&gt; Tells the Sidekiq worker to retry the enqueue job.
+</li>
+<li><strong>wrapped</strong>     -&gt; For use when dealing with an ActiveJob system.
 </li>
 </ul>
 
@@ -155,7 +157,7 @@
     
       <div class="specs">
         
-          <pre>t() :: %Sidewalk.Job{args: <a href="https://hexdocs.pm/elixir/List.html#t:t/0">List.t</a>, class: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>, created_at: <a href="https://hexdocs.pm/elixir/Float.html#t:t/0">Float.t</a>, enqueued_at: <a href="https://hexdocs.pm/elixir/Float.html#t:t/0">Float.t</a>, jid: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>, queue: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>, retry: boolean}</pre>
+          <pre>t() :: %Sidewalk.Job{args: list, class: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>, created_at: float, enqueued_at: float, jid: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>, queue: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>, retry: boolean, wrapped: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>}</pre>
         
       </div>
     
