@@ -11,8 +11,8 @@ defmodule Sidewalk.Client do
   """
 
   @type job           :: Sidewalk.Job.t
-  @type enqueue_delay :: Integer.t
-  @type enqueue_time  :: Integer.t
+  @type enqueue_delay :: integer()
+  @type enqueue_time  :: float()
   @type response      :: {:ok, String.t} | {:error, String.t}
 
   @doc """
@@ -140,7 +140,7 @@ defmodule Sidewalk.Client do
     end
   end
 
-  @spec current_unix_timestamp :: Float.t
+  @spec current_unix_timestamp :: float()
   defp current_unix_timestamp do
     {mega_seconds, seconds, microseconds} = :os.timestamp
     String.to_float("#{mega_seconds}#{seconds}.#{microseconds}")
