@@ -8,6 +8,9 @@ elixir:
 otp_release:
   - 19.0
 
+services:
+  - redis-server
+
 script:
   - mix dialyzer --halt-exit-status
   - mix test
