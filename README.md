@@ -76,4 +76,4 @@ job = %Sidewalk.Job{class: "MyWorker", args: ['bob', 1, %{foo: 'bar'}]}
 ```
 
 ## License
-The MIT License (MIT). Please see [LICENSE](https://github.com/railsmechanic/sidewalk/blob/master/LICENSE) file.
+The MIT License (MIT). Please see [License File](https://github.com/railsmechanic/sidewalk/blob/master/LICENSE) for more information.
