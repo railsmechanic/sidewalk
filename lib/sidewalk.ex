@@ -62,6 +62,21 @@ defmodule Sidewalk do
       port: Application.get_env(:sidewalk, :port, 6379),
       password: Application.get_env(:sidewalk, :password),
       database: Application.get_env(:sidewalk, :database, 0)
-    ]
+    ] |> get_config_from_env()
   end
+
+  defp get_config_from_env(config) do
+   Enum.map(
+     config,
+     fn {key, value} ->
+       case value do
+         {:system, env} ->
+           {key, System.get_env(env)}
+
+         value ->
+           {key, value}
+       end
+     end
+   )
+ end
 end
