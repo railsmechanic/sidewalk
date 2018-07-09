@@ -20,7 +20,7 @@ defmodule Sidewalk.Mixfile do
 
   defp deps do
     [
-      {:redix,    "~> 0.6.0"},
+      {:redix,    "~> 0.7.1"},
       {:poolboy,  "~> 1.5.1"},
       {:poison,   "~> 3.1.0"},
       {:ex_doc,   "~> 0.16.0", only: [:dev]},

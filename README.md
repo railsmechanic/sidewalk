@@ -47,6 +47,11 @@ config :sidewalk,
   pool_size: 10
 ```
 
+You can also use environment variables:
+```
+config :sidewalk, host: {:system, "REDIS_HOST"}
+```
+
 ## Usage
 Sidewalk offers three modes for enqueuing jobs:
 
