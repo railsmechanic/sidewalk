@@ -56,27 +56,29 @@ defmodule Sidewalk do
     ]
   end
 
-  defp redix_options do
+  def redix_options do
+    redix_default_options()
+    |> redix_options_from_environment()
+  end
+
+  defp redix_default_options do
     [
       host: Application.get_env(:sidewalk, :host, "localhost"),
       port: Application.get_env(:sidewalk, :port, 6379),
       password: Application.get_env(:sidewalk, :password),
       database: Application.get_env(:sidewalk, :database, 0)
-    ] |> get_config_from_env()
+    ]
   end
 
-  defp get_config_from_env(config) do
-   Enum.map(
-     config,
-     fn {key, value} ->
-       case value do
-         {:system, env} ->
-           {key, System.get_env(env)}
+  defp redix_options_from_environment(options) do
+    Enum.map(options, fn {key, value} ->
+      case value do
+        {:system, env} ->
+          {key, System.get_env(env)}
 
-         value ->
-           {key, value}
-       end
-     end
-   )
- end
+        value ->
+          {key, value}
+      end
+    end)
+  end
 end
